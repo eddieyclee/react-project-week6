@@ -11,7 +11,7 @@ export default function ProductDetailPage() {
   const [qtySelect, setQtySelect] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isScreenLoading, setIsScreenLoading] = useState(false);
-  const { id: product_id } = useParams();
+  const { id: product_id } = useParams(); //重新命名為product_id
 
   const addCartItem = async (product_id, qty) => {
     setIsLoading(true);

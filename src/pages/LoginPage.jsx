@@ -38,7 +38,19 @@ export default function LoginPage() {
       // 存入驗證token
       axios.defaults.headers.common['Authorization'] = token;
 
-      navigate('/backend');
+      // 驗證是否已登入
+      (async () => {
+        try {
+          await axios.post(`${BASE_URL}/api/user/check`);
+          setTimeout(() => {
+            navigate('/backend');
+          }, 2000);
+          alert('登入驗證成功');
+        } catch (error) {
+          alert(error);
+        }
+      })();
+
     // eslint-disable-next-line no-unused-vars
     } catch (error) {
       alert("登入失敗");
